@@ -3,9 +3,7 @@
 Эти правила описаны в файле __.editorconfig__ .
 
 Большинство редакторов могут автоматически приводить в порядок ваш код,  
-достаточно установить и включить соответствующий плагин.
-
-Подробнее можно почитать на http://editorconfig.org/.
+достаточно установить и включить соответствующий плагин [editorconfig](http://editorconfig.org/).
 
 ## Как подружить его с редактором
 
@@ -13,8 +11,8 @@
   Открываем «Настройки -> Плагины -> Editorconfig» и включаем.
 
 - __Notepad++__    
-  - Открываем «Plugins -> Plugin Manager -> Show Plugin Manager -> Available».
-  - Находим «EditorConfig» и нажимаем «Install».
+  1. Открываем «Plugins -> Plugin Manager -> Show Plugin Manager -> Available».
+  2. Находим «EditorConfig» и нажимаем «Install».
 
 - __Sublime__   
   Смотрим инструкцию по ссылке и устанавливаем:   

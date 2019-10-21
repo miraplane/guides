@@ -14,18 +14,18 @@
 
 ## Правила для автоматической проверки
 
-Когда вы отправляет пулл-реквест, ваш код автоматически проходит проверку  
+Когда вы отправляет pull request, ваш код автоматически проходит проверку  
 на соответствие этим правилам при помощи специального анализатора кода –  [eslint](http://eslint.org/docs/rules/).
 
-В случае, если проверка не прошла внизу пулла вы увидите комментарий:
+В случае, если проверка прошла, вы увидите комментарий:
 <img width="769" alt="fail" src="https://user-images.githubusercontent.com/25838762/67099166-e2178b80-f1d6-11e9-9c81-c25b33265242.png">
 
-ESlint подскажет в каких файлах и на какой строке произошла ошибка,  
-а так же какое именно правило было нарушено. Для этого выполните локально команду
-`npm install && npm run lint`, так же она позволит не ждать автоматической проверки 
-и всегда проверить код вручную.
 
-Весь список правил можно изучить по ссылке: http://eslint.org/docs/rules
+Чтобы узнать какие именно правила были нарушены:
+1. Установите зависимости для тестов командой `npm run deps`
+2. Запустите проверку качества кода `npm run test`
+3. ESlint покажет список нарушений с указанием файлов и строк в них
+4. Сверяясь со [справкой](http://eslint.org/docs/rules) исправьте все нарушения
 
 Если код удовлетворяет всем правилам, то запустятся внутренние тесты
 и появится комментарий о количестве пройденных тестов.
@@ -116,123 +116,123 @@ numbers.sort()
 
 1. Используйте [camelCase](https://en.wikipedia.org/wiki/CamelCase)
 
-  __Плохо:__
-  ```js
-  let apples_count = 5;
-  let Language = 'ru';
-  ```
+    __Плохо:__
+    ```js
+    let apples_count = 5;
+    let Language = 'ru';
+    ```
 
-  __Хорошо:__
-  ```js
-  let applesCount = 5;
-  let language = 'ru';
-  ```
+    __Хорошо:__
+    ```js
+    let applesCount = 5;
+    let language = 'ru';
+    ```
 
 2. Используйте только английские слова, не используйте транслит
 
-  __Плохо:__
-  ```js
-  let ssilka = 'http://esling.org/';
-  let ссылка = 'http://esling.org/';
-  ```
+    __Плохо:__
+    ```js
+    let ssilka = 'http://esling.org/';
+    let ссылка = 'http://esling.org/';
+    ```
 
-  __Хорошо:__
-  ```js
-  let link = 'http://esling.org/';
-  ```
+    __Хорошо:__
+    ```js
+    let link = 'http://esling.org/';
+    ```
 
 3. Вкладывайте смысл в название – оно должно быть однозначным и понятным
 
-  __Плохо:__
-  ```js
-  let a, b; // Не несут смысла
-  let list; // Слишком абстрактно – список чего?
-  ```
+    __Плохо:__
+    ```js
+    let a, b; // Не несут смысла
+    let list; // Слишком абстрактно – список чего?
+    ```
 
-  __Хорошо:__
-  ```js
-  let overallPrice, publishDate;
-  let grocceryList;
-  ```
+    __Хорошо:__
+    ```js
+    let overallPrice, publishDate;
+    let grocceryList;
+    ```
 
-  Допустимо использовать `i`, `j` в качестве итераторов цикла `for (let i = 0; i < 2; i++) {}`,  
-  и `a`, `b` – в функциях сортировки `grocceryList.sort(function (a, b) {})`
+    Допустимо использовать `i`, `j` в качестве итераторов цикла `for (let i = 0; i < 2; i++) {}`,  
+    и `a`, `b` – в функциях сортировки `grocceryList.sort(function (a, b) {})`
 
 4. Логические перменные начинайте с модальных глаголов
 
-  __Плохо:__
-  ```js
-  let accessToPublish
-  let visible;
-  ```
+    __Плохо:__
+    ```js
+    let accessToPublish
+    let visible;
+    ```
 
-  __Хорошо:__
-  ```js
-  let canPublish
-  let isVisible;
-  ```
+    __Хорошо:__
+    ```js
+    let canPublish
+    let isVisible;
+    ```
 
 5. Не используйте сокращения и не пишите избыточные имена
 
-  __Плохо:__
-  ```js
-  let btn;
-  let dateOfFirstPublication;
-  let postsCollection;
-  ```
+    __Плохо:__
+    ```js
+    let btn;
+    let dateOfFirstPublication;
+    let postsCollection;
+    ```
 
-  __Хорошо:__
-  ```js
-  let button;
-  let publishDate;
-  let posts;
-  ```
+    __Хорошо:__
+    ```js
+    let button;
+    let publishDate;
+    let posts;
+    ```
 
 6. Объявляйте переменные максимально близко к месту использования
 
-  __Плохо:__
-  ```js
-  let hasAccess = hasAccess(); // Далеко от места использования
-  let comments = getComments();
-  let overalRaiting = 0;
+    __Плохо:__
+    ```js
+    let hasAccess = hasAccess(); // Далеко от места использования
+    let comments = getComments();
+    let overalRaiting = 0;
 
-  for (let i = 0; i < comments.length; i++) {
-      overallRating += comments[i].rating;
-  }
+    for (let i = 0; i < comments.length; i++) {
+        overallRating += comments[i].rating;
+    }
 
-  if (hasAccess) {
-      show(overallRating);
-  }
-  ```
+    if (hasAccess) {
+        show(overallRating);
+    }
+    ```
 
-  __Хорошо:__
-  ```js
-  let comments = getComments();
-  let overalRaiting = 0;
+    __Хорошо:__
+    ```js
+    let comments = getComments();
+    let overalRaiting = 0;
 
-  for (let i = 0; i < comments.length; i++) {
-      overallRating += comments[i].rating;
-  }
+    for (let i = 0; i < comments.length; i++) {
+        overallRating += comments[i].rating;
+    }
 
-  let hasAccess = hasAccess();
-  
-  if (hasAccess) {
-      show(overallRating);
-  }
-  ```
+    let hasAccess = hasAccess();
+
+    if (hasAccess) {
+        show(overallRating);
+    }
+    ```
 
 7. Для именования функций используйте глаголы
 
-  __Плохо:__
-  ```js
-  function length() {}
-  function title(name) {}
-  function visible() {}
-  ```
+    __Плохо:__
+    ```js
+    function length() {}
+    function title(name) {}
+    function visible() {}
+    ```
 
-  __Хорошо:__
-  ```js
-  function getLength() {}
-  function setTitle(name) {}
-  function isVisible() {}
-  ```
+    __Хорошо:__
+    ```js
+    function getLength() {}
+    function setTitle(name) {}
+    function isVisible() {}
+    ```

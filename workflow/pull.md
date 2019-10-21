@@ -87,14 +87,14 @@
 
 ```bash
 # Добавляем свою почту и имя (укажите из вашего профиля на github)
-git config --global user.email "sergey@zhigalov.com"
-git config --global user.name "Zhigalov Sergey"
+git config --global user.email "username@example.com"
+git config --global user.name "User Name"
 
-# Клонируем репозиторий (вместо WisdomSpirit – ваш логин)
-git clone https://github.com/honest-hrundel/WisdomSpirit-demo-task-1-2019.git
+# Клонируем репозиторий (вместо Username – ваш логин)
+git clone https://github.com/honest-hrundel/Username-demo-task-1-2019.git
 
 # Заходим в созданную папку с клоном
-cd WisdomSpirit-demo-task-1-2019
+cd Username-demo-task-1-2019
 
 # Создаем новую ветку, в которой будем решать задачу
 git checkout -b solution
@@ -107,11 +107,11 @@ git add math.js
 # git add необходимо выполнять после каждого изменения файла
 
 # Коммитим (утверждаем изменения)
-git commit -m "Моё решение задачи"
+git commit -m "Решение задачи"
 
 # Отправляем ветку с коммитом в удалённый личный (origin) репозиторий
 # (может попросить ввод логина и пароля)
-git push origin Solution
+git push origin solution
 ```
 
 **Шаг 2.** Создаём pull request
@@ -126,9 +126,9 @@ git push origin Solution
 # Добавляем все изменённые файлы через пробел
 git add math.js
 
-# Коммитим
-git commit -m "Мои исправления"
+# Коммитим (утверждаем исправления)
+git commit -m "Исправил ошибку в методе сложения чисел – не привёл к числу"
 
 # Отправляем новый коммит в удалённый репозиторий
-git push origin Solution
+git push origin solution
 ```
